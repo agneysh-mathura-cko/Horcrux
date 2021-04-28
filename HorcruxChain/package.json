@@ -10,6 +10,16 @@
     "dev-peer": "cross-env GENERATE_PEER_PORT='true' nodemon index.js",
     "start-redis": "redis-server --service-start"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "keywords": [
+    "Blockchain",
+    "NodeJs",
+    "API",
+    "Crypto-Blockchain",
+    "Horcrux"
+  ],
   "author": "Agneysh Mathura",
   "license": "ISC",
   "devDependencies": {
@@ -19,9 +29,11 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "elliptic": "^6.5.4",
     "express": "^4.17.1",
     "hex-to-binary": "^1.0.1",
     "redis": "^3.1.2",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "uuidv1": "^1.6.14"
   }
 }

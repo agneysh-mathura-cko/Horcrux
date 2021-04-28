@@ -1,9 +1,9 @@
 const express = require('express');
 const request = require('request');
 const bodyParser = require('body-parser');
-const Blockchain = require('./blockchain');
-const PublisherSubscriber = require('./publisher-subscriber');
-const config = require('./config');
+const Blockchain = require('../blockchain');
+const PublisherSubscriber = require('./app/publisher-subscriber');
+const config = require('../config');
 const { response } = require('express');
 
 const app = express();

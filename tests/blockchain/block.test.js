@@ -1,6 +1,6 @@
 const hexToBinary = require('hex-to-binary');
 const Block = require("../../blockchain/block");
-const cryptoHash = require("../../util/crypto-hash");
+const { cryptoHash } = require("../../util");
 const Blockchain = require("../../blockchain");
 const { GENESIS_DATA, MINE_RATE } = require("../../config");
 
@@ -73,7 +73,7 @@ describe('Block', () => {
         });
 
         it('adjusts the difficulty', () => {
-            const possibleResults = [lastBlock.difficulty +1, lastBlock.difficulty -1];
+            const possibleResults = [lastBlock.difficulty + 1, lastBlock.difficulty - 1];
             expect(possibleResults.includes(minedBlock.difficulty)).toBe(true);
         })
     });

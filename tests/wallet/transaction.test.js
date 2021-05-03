@@ -9,7 +9,7 @@ describe('Transaction', () => {
     beforeEach(() => {
         senderWallet = new Wallet();
         recipient = 'recipient-public-key';
-        amount = 2;
+        amount = 20;
         transaction = new Transaction({ senderWallet, recipient, amount });
     });
 
@@ -111,7 +111,7 @@ describe('Transaction', () => {
             originalSignature = transaction.input.signature;
             originalSenderOutput = transaction.outputMap[senderWallet.publicKey];
             nextRecipient = 'next-recipient';
-            nextAmount = 2;
+            nextAmount = 50;
     
             transaction.update({
               senderWallet, recipient: nextRecipient, amount: nextAmount
@@ -142,7 +142,7 @@ describe('Transaction', () => {
             let addedAmount;
     
             beforeEach(() => {
-              addedAmount = 2;
+              addedAmount = 20;
               transaction.update({
                 senderWallet, recipient: nextRecipient, amount: addedAmount
               });

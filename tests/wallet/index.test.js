@@ -54,7 +54,7 @@ describe('Wallet', () => {
             let transaction, amount, recipient;
 
             beforeEach(() => {
-                amount = 2;
+                amount = 20;
                 recipient = 'foo-recipient';
                 transaction = wallet.createTransaction({ amount, recipient });
             });

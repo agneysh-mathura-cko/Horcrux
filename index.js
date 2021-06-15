@@ -5,6 +5,7 @@ const Blockchain = require('./blockchain');
 const PublisherSubscriber = require('./app/publisher-subscriber');
 const TransactionPool = require('./wallet/transaction-pool');
 const Wallet = require('./wallet');
+const TransactionMiner = require('./app/transaction-miner');
 const config = require('./config');
 const { response } = require('express');
 
@@ -13,6 +14,7 @@ const blockchain = new Blockchain();
 const transactionPool = new TransactionPool();
 const wallet = new Wallet();
 const pubsub = new PublisherSubscriber({ blockchain, transactionPool, wallet });
+const transactionMiner = new TransactionMiner({ blockchain, transactionPool, wallet, pubsub });
 
 const ROOT_NODE_ADDRESS = `http://localhost:${config.PORT}`;
 
@@ -68,6 +70,12 @@ app.get('/api/transaction-pool', (request, response) => {
 
     response.json(transactionPool.transactionMap);
 
+});
+
+app.get('/api/mine-transactions', (request, response) => {
+
+    transactionMiner.mineTransactions();
+    response.redirect('/api/blocks');
 });
 
 const syncWithRootState = () => {
